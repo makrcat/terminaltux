@@ -132,8 +132,8 @@ padding: 3px;}
       
       async function getRandomFortune() {
           try {
-              // Fetch the fortunes.txt file that is in the same directory as script.js
-              const response = await fetch('fortunes.txt');  // No need for a full path if it's in the same directory
+            // why doesnt it work :(
+              const response = await fetch('fortunes.txt'); 
               const text = await response.text();
       
               const fortunes = text.split('%');
