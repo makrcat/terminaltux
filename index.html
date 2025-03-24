@@ -1,1 +1,233 @@
-lkhljyfg
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tux !!!!!</title>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    
+    <style>
+    
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+html, body {height: 100vh; /* Full height of the page */margin: 0; /* Remove default margin */padding: 0; /* Remove default padding */font-family:Verdana, Geneva, Tahoma, sans-serif;font-size: 12;}
+
+body {background: rgb(236, 230, 242);/*background-size: 400px;*/
+
+color: black;line-height: 150%;
+width: 100vw;
+--sidebar-width: 250px;--content-min-width: 600px;--content-max-width: 900px;}
+.gradient_head2 {background-image: linear-gradient(to right, #c5ebf4, #b0c5f4);}
+/* ugh*/div {box-sizing: border-box;}
+h1, h2 {padding: 0;margin: 0;}
+
+.inner-wrapper-windows-div {border-top:1.5px solid white;border-left:1.5px solid white;border-right:1.5px solid #a099a1;border-bottom:1.5px solid #a099a1;
+padding: 3px;}
+
+
+.bar-pink {background: linear-gradient(to bottom right, #ffdde1, #ffb3c6);
+  color: #5a3a3a;
+}
+
+.bar-blue {
+  background: linear-gradient(to bottom right,  #565c82, #565c82);
+  color: white;
+}
+
+.bar-gr {
+  background: linear-gradient(to bottom right, #56826a, #56826a);
+  color: white;
+}
+
+.bar-yellow {
+  background: linear-gradient(to bottom right, #faf2d6, #f8ecae);
+  color: #5a3a3a;
+}
+
+.bar {
+  padding: 0;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.main-content-box { background-color: rgb(255, 255, 255);box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.6), 0 5px 5px rgba(0, 0, 0, 0.1);backdrop-filter: blur(10px);min-height: 400px;}
+
+
+.outer-wrapper-windows-div {
+
+  border-top:1.5px solid #cac6cb;
+  border-left:1.5px solid #cac6cb;
+  border-right:1.5px solid black;
+  border-bottom:1.5px solid black;
+  background-color: #cac6cb;
+}
+
+
+.what-the-hail {border-top:1.5px solid #a099a1;border-left:1.5px solid #a099a1;border-right:1.5px solid white;border-bottom: 1.5px solid white;}
+
+
+.the-inner-inner-windows {/*border: 1px solid lightgreen; border-top: 1px solid #FFFFFF;border-left:1px solid #FFFFFF;*/
+/*background-color: rgb(208, 235, 208);*/
+border-top:1.5px solid black;border-left:1.5px solid black;
+border-bottom:1.5px solid #cac6cb;border-right:1.5px solid #cac6cb;
+padding: 3px;}
+
+.inner_four {
+
+  padding: 3px;
+  border-top:1.5px solid black;border-left:1.5px solid black;
+  border-bottom:1.5px solid #cac6cb;border-right:1.5px solid #cac6cb;
+  background-color: rgb(255, 255, 255); 
+
+  min-height: 100px;
+  }
+
+#fortune {
+
+  font-family: "Cutive Mono";
+  letter-spacing: -1px; 
+  line-height: 16px;
+}
+
+
+
+    </style>
+
+
+  </head>
+
+  <body>
+
+    
+
+        <div class="outer-wrapper-windows-div" style="position: relative;width: 250px;min-height: 30px; margin-bottom: 20px;">
+          <div class="inner-wrapper-windows-div">
+            <div class="bar bar-blue">terminal tux</div>
+
+            <div class="what-the-hail" style="position: relative">
+              <div class="inner_four">
+                <div id="fortune" style="white-space: pre;">
+                  help
+                </div>
+
+                <img src="fortune-cookie.png" style="position: absolute; bottom: 5px; left: 150px; opacity: 0.5;">
+                <button style="position: absolute; bottom: 70px; left: 150px;" onclick="getRandomFortune()">go again</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+ 
+
+
+    <script>
+      
+      
+      async function getRandomFortune() {
+          try {
+              // Fetch the fortunes.txt file that is in the same directory as script.js
+              const response = await fetch('fortunes/use/fortunes');  // No need for a full path if it's in the same directory
+              const text = await response.text();
+      
+              const fortunes = text.split('%');
+      
+              const cleanedFortunes = fortunes.map(fortune => fortune.trim()).filter(fortune => fortune.length > 0);
+      
+              // Pick a random fortune
+              const randomIndex = Math.floor(Math.random() * cleanedFortunes.length);
+              const randomFortune = cleanedFortunes[randomIndex];
+      
+              // Display the random fortune in the paragraph
+              document.getElementById('fortune').innerText = formatFortune(randomFortune)
+          } catch (error) {
+              console.error('Error loading fortune file:', error);
+              document.getElementById('fortune').innerText = 'Failed to load fortunes.';
+          }
+      }
+      
+      const tux = `
+         \\ 
+          \\ 
+              .--.   
+             |o_o | 
+             |:_/ |   
+            //   \\ \\    
+           (|     | )    
+          /'\\_   _/\`\\    
+          \\___)=(___/       
+      `
+      
+      function formatFortune(fortune) {
+          const lineLength = 24 - 4;
+          cleaned_fortune = fortune.replace(/[\n\r\t]/g, ' ').replace(/\s+/g, ' '); 
+      
+          const words = cleaned_fortune.split(' ');
+          let lines = [];
+          let currentLine = '';
+      
+          for (let word of words) {
+              // for the sides btw
+              if ((currentLine + ' ' + word).length <= lineLength) {
+                  currentLine += (currentLine ? ' ' : '') + word;
+              } else {
+                  lines.push(currentLine);
+                  currentLine = word;
+              }
+          }
+          if (currentLine.length > 0) {
+              lines.push(currentLine);
+          }
+      
+          console.log(lines);
+      
+      
+          const top = ' '+'_'.repeat(lineLength + 2);
+          const bottom = ' '+'-'.repeat(lineLength + 2);
+      
+          let formattedFortune = `${top} \n` ;
+      
+          let L = lines.length;
+      
+          if (L >= 3) {
+      
+              for (let i = 0; i < L; i++) {
+                  const padding = lineLength - lines[i].length;
+      
+                  if (i == 0) formattedFortune += `/ ${lines[i]}${' '.repeat(padding)} \\ \n` ;
+                  else if (i == L - 1) formattedFortune += `\\ ${lines[i]}${' '.repeat(padding)} / \n` ;
+                  else formattedFortune += `| ${lines[i]}${' '.repeat(padding)} |\n` ;
+              }
+      
+          } else if (L == 2) {
+      
+              for (let i = 0; i < L; i++) {
+                  const padding = lineLength - lines[i].length;
+      
+                  if (i == 0) formattedFortune += `/ ${lines[i]}${' '.repeat(padding)} \\ \n`;
+                  else if (i == 1) formattedFortune += `\\ ${lines[i]}${' '.repeat(padding)} / \n` ;
+              }
+      
+          } else {
+              padding = lineLength - lines[0].length; // no it will not be negative
+              formattedFortune += `< ${lines[0]}${' '.repeat(padding)} > \n` ;
+          }
+      
+          formattedFortune += `${bottom}`;
+          formattedFortune += tux;
+      
+          return formattedFortune;
+      }
+      
+      getRandomFortune();
+    </script>
+
+  </body>
+
+</html>
