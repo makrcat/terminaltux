@@ -1,5 +1,7 @@
 Mostly a demo of how to put text inside of speech bubbles
 
+Based off theeee wonderful fortune command
+
 ```
  ______________________ 
 / Questionable day.    \ 
