@@ -133,8 +133,7 @@ padding: 3px;}
       
       async function getRandomFortune() {
           try {
-            // why doesnt it work :(
-              const response = await fetch('terminaltux/fortunes.txt');
+              const response = await fetch('fortunes.txt');
               const text = await response.text();
       
               const fortunes = text.split('%');
